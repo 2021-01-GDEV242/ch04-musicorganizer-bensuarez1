@@ -180,4 +180,15 @@ public class MusicOrganizer
             playTrack(index);
         }
     }
+    
+    public void playAllRandom()
+    {
+        Random rand = new Random();
+        ArrayList<Track> remainingTracks = new ArrayList<Track>(tracks);
+        while(remainingTracks.size() > 0){
+            int index = rand.nextInt(remainingTracks.size());
+            Track t = remainingTracks.remove(index);
+            player.playSample(t.getFilename());
+        }
+    }
 }
